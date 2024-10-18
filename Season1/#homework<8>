@@ -1,0 +1,32 @@
+#include <iostream>
+
+using namespace std;
+
+void PrintTruthTable(int n, int arr[], int index) {
+
+    if (index == n) {
+        for (int i = 0; i < n; i++) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+        return;
+    }
+
+    arr[index] = 0;
+    PrintTruthTable(n, arr, index + 1);
+
+    arr[index] = 1;
+    PrintTruthTable(n, arr, index + 1);
+}
+
+int main() {
+    int n;
+
+    cout << "Enter the number of propositions (n): ";
+    cin >> n;
+
+    int arr[n];
+    PrintTruthTable(n, arr, 0);
+
+    return 0;
+}
