@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+
+unsigned long long Factoriel(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    }
+
+    return n * Factoriel(n - 1);
+}
+
+
+unsigned long long SumOfFactoriels(int n) {
+
+    if (n == 0) {
+        return 0;
+    }
+
+    return Factoriel(n) + SumOfFactoriels(n - 1);
+}
+
+int main() {
+    int n;
+
+    cout << "Enter n: ";
+    cin >> n;
+
+    //we using long long cause the grow of factoriel is rapid + restricting the overflow on memory:)
+    unsigned long long result = SumOfFactoriels(n);
+    cout << result << endl;
+
+    return 0;
+}
+
+
+//We also can make these two functions integrated in one
