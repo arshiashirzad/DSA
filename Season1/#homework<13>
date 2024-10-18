@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+void TowerOfHanoi(int n, char source, char target, char flg) {
+
+    if (n == 1) {
+        cout << "Move disk 1 from " << source << " to " << target << endl;
+        return;
+    }
+
+    TowerOfHanoi(n - 1, source, flg, target);
+
+    cout << "Move disk " << n << " from " << source << " to " << target << endl;
+
+    TowerOfHanoi(n - 1, flg, target, source);
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of disks: ";
+    cin >> n;
+
+    TowerOfHanoi(n, 'A', 'C', 'B'); // A, B and C are names of rods
+
+    return 0;
+}
